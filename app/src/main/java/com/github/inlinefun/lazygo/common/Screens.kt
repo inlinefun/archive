@@ -9,4 +9,6 @@ sealed interface Screens: NavKey {
     data object Splash: Screens
     @Serializable
     data object Setup: Screens
+    @Serializable
+    data object Map: Screens
 }

@@ -15,6 +15,7 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.github.inlinefun.lazygo.common.LazyGoTheme
 import com.github.inlinefun.lazygo.common.Screens
+import com.github.inlinefun.lazygo.composables.SetupScreen
 import com.github.inlinefun.lazygo.composables.SplashScreen
 
 class MainActivity : ComponentActivity() {
@@ -53,6 +54,11 @@ fun AppContent(
                 }
             }
             entry<Screens.Setup> {
+                SetupScreen { screen ->
+                    backstack[0] = screen
+                }
+            }
+            entry<Screens.Map> {
 
             }
         }

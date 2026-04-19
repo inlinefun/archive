@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">LazyGo</string>
 
+    <string name="label_next">Next</string>
+    <string name="label_complete">Complete</string>
+
     <string name="splash_label_one">Takes a while</string>
     <string name="splash_label_two">Why read this?</string>
     <string name="splash_label_three">:3</string>
     <string name="splash_label_four">&gt;_&lt;</string> <!-- equals to ">_<" -->
     <string name="splash_label_five">Fun fact:</string>
+
+    <string name="permission_location_title">Location Access</string>
+    <string name="permission_location_description">The application requires the device\'s Location permissions for the Map</string>
+    <string name="permission_location_button">Grant Permission</string>
 
 </resources>
