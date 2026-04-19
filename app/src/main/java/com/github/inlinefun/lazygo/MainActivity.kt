@@ -4,14 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.github.inlinefun.lazygo.ui.theme.LazyGoTheme
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.ui.NavDisplay
+import com.github.inlinefun.lazygo.common.LazyGoTheme
+import com.github.inlinefun.lazygo.common.Screens
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,10 +20,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LazyGoTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                Scaffold { paddingValues ->
+                    AppContent(
+                        modifier = Modifier
+                            .padding(paddingValues)
                     )
                 }
             }
@@ -31,17 +32,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun AppContent(
+    modifier: Modifier = Modifier
+) {
+    val backstack = rememberNavBackStack(Screens.Splash)
+    NavDisplay(
+        backStack = backstack,
+        modifier = modifier,
+        entryProvider = entryProvider {
+            entry<Screens.Splash> { }
+        }
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LazyGoTheme {
-        Greeting("Android")
-    }
 }
