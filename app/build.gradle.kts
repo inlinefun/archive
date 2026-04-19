@@ -56,6 +56,8 @@ dependencies {
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.viewmodel.navigation3)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.google.accompanist.permissions)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
