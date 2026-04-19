@@ -3,6 +3,8 @@
 .kotlin/
 
 build/
+release/
+debug/
 
 .DS_Store
 .cxx
