@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LazyGo</string>
+
+    <string name="splash_label_one">Takes a while</string>
+    <string name="splash_label_two">Why read this?</string>
+    <string name="splash_label_three">:3</string>
+    <string name="splash_label_four">&gt;_&lt;</string> <!-- equals to ">_<" -->
+    <string name="splash_label_five">Fun fact:</string>
+
 </resources>
