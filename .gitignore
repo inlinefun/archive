@@ -1,0 +1,14 @@
+.gradle/
+.idea/
+.kotlin/
+
+build/
+
+.DS_Store
+.cxx
+.externalNativeBuild
+
+*.iml
+*.ipr
+*.iws
+local.properties
