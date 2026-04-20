@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
@@ -17,6 +18,7 @@ import com.github.inlinefun.lazygo.common.LazyGoTheme
 import com.github.inlinefun.lazygo.common.Screens
 import com.github.inlinefun.lazygo.composables.SetupScreen
 import com.github.inlinefun.lazygo.composables.SplashScreen
+import com.github.inlinefun.lazygo.viewmodels.AppViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +42,7 @@ fun AppContent(
     modifier: Modifier = Modifier
 ) {
     val backstack = rememberNavBackStack(Screens.Splash)
+    val viewModel: AppViewModel = viewModel()
     NavDisplay(
         backStack = backstack,
         modifier = modifier,
@@ -54,7 +57,10 @@ fun AppContent(
                 }
             }
             entry<Screens.Setup> {
-                SetupScreen { screen ->
+                SetupScreen(
+                    locationProviderState = viewModel.isLocationProvider,
+                    refreshLocationProvider = viewModel::refreshProviderStatus
+                ) { screen ->
                     backstack[0] = screen
                 }
             }
